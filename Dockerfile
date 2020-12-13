@@ -11,7 +11,7 @@ VOLUME /tmp
 EXPOSE 5025
 
 # The application's jar file
-ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/SpringBootJwtAuthentication-imc-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} SpringBootJwtAuthentication.jar
@@ -20,7 +20,9 @@ ADD ${JAR_FILE} SpringBootJwtAuthentication.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringBootJwtAuthentication.jar"]
  
 # docker build
-# sudo docker build -t alberto21/SpringBootJwtAuthentication .
+# sudo docker build -t alberto21/springBootjwtauthentication .
 
 # docker run
 # sudo docker run --name ramosgla-api -p 5025:8080 alberto21/SpringBootJwtAuthentication
+
+
