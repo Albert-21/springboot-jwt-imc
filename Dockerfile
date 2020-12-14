@@ -14,13 +14,13 @@ EXPOSE 5025
 ARG JAR_FILE=target/SpringBootJwtAuthentication-0.0.1.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} resapi-imc.jar
+ADD ${JAR_FILE} SpringBootJwtAuthentication-0.0.1.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/resapi-imc.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringBootJwtAuthentication-0.0.1.jar"]
 
 # docker build
 # sudo docker build -t alberto21/resapi-imc .
 
 # docker run
-# sudo docker run --name RESTAPI-IMC -p 5025:8080 -d alfonsojari/resapi-imc
+# sudo docker run --name RESTAPI-IMC -p 5025:8080 -d alberto21/resapi-imc
