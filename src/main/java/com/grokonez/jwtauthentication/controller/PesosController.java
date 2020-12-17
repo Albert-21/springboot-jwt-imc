@@ -49,7 +49,7 @@ public class PesosController {
     }
 
     @GetMapping("/pesos/{username}")
-    public ResponseEntity<Pesos> getPesosByUsername(@PathVariable(value = "id") String username)
+    public ResponseEntity<Pesos> getPesosByUsername(@PathVariable(value = "username") String username)
         throws ResourceNotFoundException {
         Pesos pesos = (Pesos) pesosRepository.findByUsername(username);
         //.orElseThrow(() -> new ResourceNotFoundException("Pesos not found for this username :: " + username));
