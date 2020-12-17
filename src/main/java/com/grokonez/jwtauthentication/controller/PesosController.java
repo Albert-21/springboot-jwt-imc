@@ -48,6 +48,14 @@ public class PesosController {
         return pesosRepository.save(pesos);
     }
 
+    @GetMapping("/pesos/{username}")
+    public ResponseEntity<Pesos> getPesosByUsername(@PathVariable(value = "id") String username)
+        throws ResourceNotFoundException {
+        Pesos pesos = (Pesos) pesosRepository.findByUsername(username);
+        //.orElseThrow(() -> new ResourceNotFoundException("Pesos not found for this username :: " + username));
+        return ResponseEntity.ok().body(pesos);
+    }
+
     @PutMapping("/pesos/{id}")
     public ResponseEntity<Pesos> updatePesos(@PathVariable(value = "id") Long pesosId,
          @Valid @RequestBody Pesos pesosDetails) throws ResourceNotFoundException {

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Table(name = "pesos")
 public class Pesos {
     private long id_user;
+    private String username;
     private String imc;
     private String estado;
     private String peso_min;
@@ -20,7 +21,8 @@ public class Pesos {
   
     }
  
-    public Pesos(long id_user, String imc, String estado, String peso_min, String peso_max) {
+    public Pesos(String username, long id_user, String imc, String estado, String peso_min, String peso_max) {
+        this.username = username;
         this.id_user = id_user;
         this.imc = imc;
         this.estado= estado;
@@ -28,11 +30,19 @@ public class Pesos {
         this.peso_max = peso_max;
     }
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id_user;
     }
     public void setId(long id_user) {
         this.id_user = id_user;
+    }
+    @Column(name = "username", nullable = false)
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
  
     @Column(name = "imc", nullable = false)
